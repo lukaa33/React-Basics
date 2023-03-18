@@ -1,6 +1,7 @@
-import Expenses from "./components/Expenses";
+import React from 'react'; 
+import Expenses from './components/Expenses/Expenses';
 
-function App() {
+function App() { // ili const App = () => {}; arrow function
   const expenses = [
     {
       id: "e1",
@@ -29,8 +30,9 @@ function App() {
     <div>
       <h2>Let's get started!</h2>
       <Expenses items={expenses}></Expenses>
-     
     </div>
+
+    // return React.createElement('div', {}, React.createElement('h2', {}, "Let's get started!"), React.createElement(Expenses,{items: expenses}));
   );
 }
 
