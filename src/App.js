@@ -1,4 +1,5 @@
 import React from 'react'; 
+import NewExpense from './components/NewExpense/NewExpense';
 import Expenses from './components/Expenses/Expenses';
 
 function App() { // ili const App = () => {}; arrow function
@@ -28,7 +29,7 @@ function App() { // ili const App = () => {}; arrow function
   ];
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense/>
       <Expenses items={expenses}></Expenses>
     </div>
 
