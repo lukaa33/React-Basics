@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import './Expenses.css';
-function Expenses(props) { //parent to child sa props
+import ExpensesFilter from './ExpensesFilter';
+import './ExpensesFilter';
+
+function Expenses(props) { //parent to child sa props 
+  const [filteredYear, setFilteredYear] = useState('2020'); 
+   
+
+  const filterChangedHandler = selectedYear => {
+  setFilteredYear(selectedYear);
+  }; 
   return (
-    <Card className="expenses"> 
+    <div>
+    <Card className="expenses">
+       <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangedHandler} />
       <ExpenseItem
         title={props.items[0].title}
         amount={props.items[0].amount}
@@ -26,6 +37,8 @@ function Expenses(props) { //parent to child sa props
         date={props.items[3].date}
       ></ExpenseItem>
     </Card>
+    </div>
+
   );
 }
 export default Expenses;
