@@ -6,7 +6,7 @@ import ExpensesFilter from './ExpensesFilter';
 import './ExpensesFilter';
 
 function Expenses(props) { //parent to child sa props 
-  const [filteredYear, setFilteredYear] = useState('2020'); 
+  const [filteredYear, setFilteredYear] = useState('2020');  
    
 
   const filterChangedHandler = selectedYear => {
@@ -16,7 +16,7 @@ function Expenses(props) { //parent to child sa props
     <div>
     <Card className="expenses">
        <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangedHandler} />
-       {props.items.map((expense) => (<ExpenseItem title={expense.title} amount={expense.amount} date={expense.date}/>))}
+       {props.items.map((expense /* ako nemamo id stavimo pored parametra index*/) => (<ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date}/>))}
     </Card>
     </div>
   );
